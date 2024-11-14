@@ -172,38 +172,38 @@ with col2:
             st.warning("New prompt cannot be empty.")
 
 # Add Approve and Reject buttons
-col1, col2 = st.columns(2)
+# col1, col2 = st.columns(2)
 
-with col1:
-    if st.button("Approve"):
-        st.success(f"Image {image_number} Approved.")
-        # Approve status update logic
-        try:
-            update_query = text("""
-            UPDATE images
-            SET status = 'APPROVED'
-            WHERE image = :image_name
-            """)
-            with engine.connect() as conn:
-                conn.execute(update_query, {"image_name": image_name})
-                # conn.commit()
-            st.success("Image status updated to Approved in the database.")
-        except Exception as e:
-            st.error(f"Failed to update status to Approved: {e}")
+# with col1:
+#     if st.button("Approve"):
+#         st.success(f"Image {image_number} Approved.")
+#         # Approve status update logic
+#         try:
+#             update_query = text("""
+#             UPDATE images
+#             SET status = 'APPROVED'
+#             WHERE image = :image_name
+#             """)
+#             with engine.connect() as conn:
+#                 conn.execute(update_query, {"image_name": image_name})
+#                 # conn.commit()
+#             st.success("Image status updated to Approved in the database.")
+#         except Exception as e:
+#             st.error(f"Failed to update status to Approved: {e}")
 
-with col2:
-    if st.button("Reject"):
-        st.warning(f"Image {image_number} Rejected.")
-        # Reject status update logic
-        try:
-            update_query = text("""
-            UPDATE images
-            SET status = 'REJECTED'
-            WHERE image = :image_name
-            """)
-            with engine.connect() as conn:
-                conn.execute(update_query, {"image_name": image_name})
-                # conn.commit()
-            st.warning("Image status updated to Rejected in the database.")
-        except Exception as e:
-            st.error(f"Failed to update status to Rejected: {e}")
+# with col2:
+#     if st.button("Reject"):
+#         st.warning(f"Image {image_number} Rejected.")
+#         # Reject status update logic
+#         try:
+#             update_query = text("""
+#             UPDATE images
+#             SET status = 'REJECTED'
+#             WHERE image = :image_name
+#             """)
+#             with engine.connect() as conn:
+#                 conn.execute(update_query, {"image_name": image_name})
+#                 # conn.commit()
+#             st.warning("Image status updated to Rejected in the database.")
+#         except Exception as e:
+#             st.error(f"Failed to update status to Rejected: {e}")
